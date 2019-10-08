@@ -7,7 +7,12 @@ import { Provider } from "react-redux";
 
 //Components
 import LoginForm from "./components/LoginForm";
-
+import { checkForExpiredToken } from "./redux/actions/authActions";
+store.dispatch(checkForExpiredToken());
 export default function App() {
-  return <LoginForm />;
+  return (
+    <Provider store={store}>
+      <LoginForm />
+    </Provider>
+  );
 }
